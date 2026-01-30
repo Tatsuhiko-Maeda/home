@@ -1,0 +1,1014 @@
+/* ============================================
+   CSS リセット・基本設定
+   ============================================ */
+
+/* 全要素のボックスサイズ計算方法を統一 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ルート要素の設定（スムーズスクロール） */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 基本のフォント・色設定 */
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fff;
+}
+
+/* リンクの基本スタイル */
+a {
+  color: #2c5282;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+  color: #1a365d;
+  opacity: 0.8;
+}
+
+/* 画像のレスポンシブ対応 */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* リストのデフォルトスタイルをリセット */
+ul, ol {
+  list-style: none;
+}
+
+
+/* ============================================
+   共通レイアウト
+   ============================================ */
+
+/* コンテナ：コンテンツの最大幅を制限し中央揃え */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* セクション共通スタイル */
+.section {
+  padding: 80px 0;
+}
+
+/* セクションタイトル */
+.section-title {
+  font-family: 'Hannari Mincho', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  color: #1a365d;
+}
+
+/* セクションタイトルの下線装飾 */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #2c5282;
+  margin: 15px auto 0;
+}
+
+
+/* ============================================
+   ヘッダー（ナビゲーションバー）
+   ============================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* サイトタイトル（名前） */
+.site-title {
+  font-family: 'Hannari Mincho', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.site-title a {
+  color: #1a365d;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.site-title a:hover {
+  opacity: 1;
+}
+
+.site-title .en-name {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 400;
+}
+
+/* ナビゲーションメニュー */
+.nav-list {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-list a {
+  font-size: 0.95rem;
+  color: #333;
+  padding: 5px 0;
+  position: relative;
+}
+
+/* ナビゲーションリンクのホバー時下線 */
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2c5282;
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
+/* 言語切り替えボタン */
+.lang-switch a {
+  background-color: #2c5282;
+  color: #fff !important;
+  padding: 6px 15px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+
+.lang-switch a:hover {
+  background-color: #1a365d;
+}
+
+.lang-switch a::after {
+  display: none;
+}
+
+/* ハンバーガーメニューボタン（PC時は非表示） */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.menu-icon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-icon::before {
+  content: '';
+  top: -8px;
+}
+
+.menu-icon::after {
+  content: '';
+  bottom: -8px;
+}
+
+/* ハンバーガーメニューがアクティブ時のアニメーション */
+.menu-toggle.active .menu-icon {
+  background-color: transparent;
+}
+
+.menu-toggle.active .menu-icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active .menu-icon::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+
+/* ============================================
+   メインビジュアル（ヒーローセクション）
+   ============================================ */
+
+.hero {
+  /* 背景画像を設定する場合はここを編集 */
+  /* background-image: url('images/hero.jpg'); */
+  background-color: #e8eef5;
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px; /* ヘッダーの高さ分 */
+  position: relative;
+}
+
+/* 背景画像使用時のオーバーレイ */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+.hero-title {
+  font-family: 'Hannari Mincho', serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #1a365d;
+  margin-bottom: 20px;
+  /* 背景画像使用時は白文字に: color: #fff; */
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  /* 背景画像使用時は白文字に: color: rgba(255,255,255,0.9); */
+}
+
+
+/* ============================================
+   About（自己紹介）セクション
+   ============================================ */
+
+.section-about {
+  background-color: #fff;
+}
+
+.about-content {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* プロフィール写真エリア */
+.about-image {
+  flex-shrink: 0;
+  width: 250px;
+}
+
+.about-image img {
+  border-radius: 5px;
+}
+
+/* 画像プレースホルダー（仮表示用） */
+.image-placeholder {
+  background-color: #d1d5db;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+}
+
+/* プロフィールテキストエリア */
+.about-text {
+  flex: 1;
+}
+
+.about-name {
+  font-family: 'Hannari Mincho', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #1a365d;
+  margin-bottom: 5px;
+}
+
+.about-name .name-en {
+  font-size: 1rem;
+  color: #666;
+  margin-left: 15px;
+  font-weight: 400;
+}
+
+.about-position {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.about-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1a365d;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* 経歴リスト */
+.career-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 20px;
+}
+
+.career-list dt {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.career-list dd {
+  font-size: 0.95rem;
+}
+
+
+/* ============================================
+   Research（研究内容）セクション
+   ============================================ */
+
+.section-research {
+  background-color: #f7fafc;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.research-card {
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.research-image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.research-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.research-image .image-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.research-body {
+  padding: 25px;
+}
+
+.research-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1a365d;
+  margin-bottom: 10px;
+}
+
+.research-description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+
+/* ============================================
+   Publications（業績）セクション
+   ============================================ */
+
+.section-publications {
+  background-color: #fff;
+}
+
+.publications-category {
+  margin-bottom: 50px;
+}
+
+.publications-category:last-child {
+  margin-bottom: 0;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1a365d;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.publications-list {
+  counter-reset: pub-counter;
+}
+
+.publications-list:not(.no-number) {
+  padding-left: 0;
+}
+
+.publication-item {
+  padding: 15px 0 15px 50px;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  line-height: 1.7;
+}
+
+/* 番号付きリストのカウンター */
+.publications-list:not(.no-number) .publication-item::before {
+  counter-increment: pub-counter;
+  content: counter(pub-counter) '.';
+  position: absolute;
+  left: 0;
+  top: 15px;
+  font-weight: 500;
+  color: #2c5282;
+  width: 35px;
+  text-align: right;
+}
+
+/* 番号なしリスト */
+.publications-list.no-number .publication-item {
+  padding-left: 0;
+}
+
+.pub-authors {
+  color: #555;
+}
+
+/* 自分の名前を強調 */
+.author-me {
+  font-weight: 600;
+  color: #1a365d;
+}
+
+.pub-year {
+  color: #666;
+}
+
+.pub-title {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin: 3px 0;
+}
+
+.pub-journal {
+  font-style: italic;
+  color: #666;
+}
+
+.pub-link {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.85rem;
+  background-color: #e8eef5;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+.pub-link:hover {
+  background-color: #d1dbe8;
+}
+
+
+/* ============================================
+   Presentations（発表）セクション
+   ============================================ */
+
+.section-presentations {
+  background-color: #f7fafc;
+}
+
+.presentations-category {
+  margin-bottom: 50px;
+}
+
+.presentations-category:last-child {
+  margin-bottom: 0;
+}
+
+.presentation-item {
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+  line-height: 1.7;
+}
+
+.pres-authors {
+  color: #555;
+}
+
+.pres-title {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin: 3px 0;
+}
+
+.pres-venue {
+  color: #666;
+}
+
+.pres-date {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* 発表形式のラベル */
+.pres-type {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 2px 10px;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.pres-type.oral {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+.pres-type.poster {
+  background-color: #feebc8;
+  color: #744210;
+}
+
+
+/* ============================================
+   News（お知らせ）セクション
+   ============================================ */
+
+.section-news {
+  background-color: #fff;
+}
+
+.news-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.news-item {
+  display: flex;
+  gap: 25px;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.news-date {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: #666;
+  width: 100px;
+}
+
+.news-content {
+  flex: 1;
+}
+
+
+/* ============================================
+   Contact（連絡先）セクション
+   ============================================ */
+
+.section-contact {
+  background-color: #e8eef5;
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Projects / Activities セクション（既存の配色と同系色に合わせる） */
+.section-projects {
+  background-color: #f7fafc; /* research/presentations と同系色 */
+}
+
+/* Projects / Outreach list (supports both ul/li and div/article structures) */
+.projects-list {
+  max-width: 900px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.projects-list .project-item {
+  background-color: #fff;
+  padding: 18px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 18px;
+  border-left: 4px solid #2c5282;
+}
+
+.project-date {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  margin-right: 12px;
+}
+
+.project-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a365d;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.project-description {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.section-activities {
+  background-color: #e8eef5; /* hero/contact と同系色 */
+}
+.activities-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+.activities-list .activity-item {
+  display: flex;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Grants list: support both <dl> (dt/dd) and <ul>/<li> forms */
+.grants-list {
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.grants-list .grant-item,
+.grants-list > div.grant-item {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.grants-list dt.grant-date,
+.grants-list .grant-date {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  color: #666;
+  width: 110px;
+}
+
+.grants-list dd.grant-content,
+.grants-list .grant-content {
+  flex: 1;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a365d;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.contact-subtitle:first-child {
+  margin-top: 0;
+}
+
+.contact-affiliation {
+  color: #555;
+}
+
+.contact-email {
+  font-size: 1.1rem;
+  color: #2c5282;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-links a:hover {
+  background-color: #f7fafc;
+}
+
+
+/* ============================================
+   フッター
+   ============================================ */
+
+.footer {
+  background-color: #1a365d;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 30px 0;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.85rem;
+}
+
+
+/* ============================================
+   スクロールアニメーション
+   ============================================ */
+
+/* アニメーション対象の初期状態（非表示） */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 表示状態 */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 各要素に遅延をつける（カードやリストで使用） */
+.fade-in.delay-1 { transition-delay: 0.1s; }
+.fade-in.delay-2 { transition-delay: 0.2s; }
+.fade-in.delay-3 { transition-delay: 0.3s; }
+.fade-in.delay-4 { transition-delay: 0.4s; }
+.fade-in.delay-5 { transition-delay: 0.5s; }
+
+
+/* ============================================
+   レスポンシブ対応（タブレット）
+   ============================================ */
+
+@media screen and (max-width: 900px) {
+  /* リサーチセクションを2列に */
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* About セクションを縦並びに */
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .about-text {
+    width: 100%;
+  }
+  
+  .career-list {
+    text-align: left;
+  }
+}
+
+
+/* ============================================
+   レスポンシブ対応（スマートフォン）
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  /* ハンバーガーメニューを表示 */
+  .menu-toggle {
+    display: block;
+  }
+  
+  /* ナビゲーションをモバイル用に */
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  .nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    padding: 15px 0;
+  }
+  
+  .nav-list li {
+    width: 100%;
+  }
+  
+  .nav-list a {
+    display: block;
+    padding: 15px 25px;
+  }
+  
+  .nav-list a::after {
+    display: none;
+  }
+  
+  .lang-switch {
+    padding: 10px 25px;
+  }
+  
+  .lang-switch a {
+    display: inline-block;
+  }
+  
+  /* サイトタイトルを小さく */
+  .site-title {
+    font-size: 1.1rem;
+  }
+  
+  .site-title .en-name {
+    display: none;
+  }
+  
+  /* ヒーローセクション */
+  .hero {
+    min-height: 50vh;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* セクション */
+  .section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 35px;
+  }
+  
+  /* リサーチセクションを1列に */
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Aboutセクション */
+  .about-image {
+    width: 180px;
+  }
+  
+  .about-name {
+    font-size: 1.5rem;
+  }
+  
+  .about-name .name-en {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  /* Publicationsセクション */
+  .publication-item {
+    padding-left: 35px;
+  }
+  
+  .publication-item::before {
+    width: 25px;
+  }
+  
+  /* Newsセクション */
+  .news-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .news-date {
+    width: auto;
+  }
+  
+  /* Contactセクション */
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* ============================================
+   印刷用スタイル
+   ============================================ */
+
+@media print {
+  .header,
+  .menu-toggle {
+    display: none;
+  }
+  
+  .hero {
+    margin-top: 0;
+    min-height: auto;
+    padding: 30px 0;
+  }
+  
+  .section {
+    padding: 30px 0;
+  }
+  
+  /* 印刷時はアニメーションを無効化 */
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}

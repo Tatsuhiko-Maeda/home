@@ -1,93 +1,535 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
+  <!-- レスポンシブ対応のための設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>前田達彦/Tatsuhiko Maeda</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-<link rel="icon" href="./favicon_close.png">
+  <!-- ページタイトル（ブラウザのタブに表示される） -->
+  <title>前田達彦 / Tatsuhiko Maeda</title>
+  <!-- 外部CSSファイルの読み込み -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fontsの読み込み（日本語対応フォント） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Hannari+Mincho&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">About me</a>
-        <a href="#">Publication</a>
-        <a href="#">Presentation</a>
-        <a href="#">Presentation</a>
-        <a href="./en/index.html">EN/JA</a> 
-      </div>
+
+  <!-- ============================================
+       ヘッダー部分（ナビゲーションバー）
+       ============================================ -->
+  <header class="header">
+    <div class="header-container">
+      <!-- サイトロゴ/名前 -->
+      <h1 class="site-title">
+        <a href="index.html">前田達彦<span class="en-name">Tatsuhiko Maeda</span></a>
+      </h1>
+      
+      <!-- ハンバーガーメニューボタン（スマホ用） -->
+      <button class="menu-toggle" aria-label="メニューを開く">
+        <span class="menu-icon"></span>
+      </button>
+      
+      <!-- ナビゲーションメニュー -->
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- 言語切り替え -->
+          <li class="lang-switch"><a href="en/index.html">EN</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
-      </div>
+
+  <!-- ============================================
+       メインビジュアル（トップ画像エリア）
+       ============================================ -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h2 class="hero-title">こんにちは、前田達彦です</h2>
+      <p class="hero-subtitle">奄美大島でオオウナギの研究をしています。</p>
     </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
+    <!-- 背景はCSSで指定するため、画像を変更する場合はstyle.cssの.heroを編集 -->
+  </section>
+
+  <!-- ============================================
+       メインコンテンツ
+       ============================================ -->
+  <main class="main">
+
+    <!-- ========== About（自己紹介）セクション ========== -->
+    <section id="about" class="section section-about">
+      <div class="container">
+        <h2 class="section-title fade-in">About me</h2>
+        
+        <div class="about-content fade-in">
+          <!-- プロフィール写真エリア -->
+          <div class="about-image">
+            <!-- 画像を入れる場合: <img src="images/profile.jpg" alt="プロフィール写真"> -->
+            <div class="image-placeholder">PHOTO</div>
+          </div>
+          
+          <!-- プロフィールテキストエリア -->
+          <div class="about-text">
+            <h3 class="about-name">前田 達彦<span class="name-en">Tatsuhiko Maeda</span></h3>
+            <p class="about-position">東京大学 農学生命科学研究科 博士課程<br>
+              東京大学 大気海洋研究所 生物海洋学グループ
+            </p>
+            
+            <p class="about-description">
+              生態系の構造や相互作用に興味があります。<br>
+              ウナギ属だけでなく幅広い水生生物が好きです。
+            </p>
+            
+            <!-- 経歴リスト -->
+            <h4 class="about-subtitle">経歴</h4>
+            <dl class="career-list">
+              <dt>1999年</dt>
+              <dd>愛知県一色町生まれ</dd>
+              <dt>2014–2017年</dt>
+              <dd>愛知県立刈谷高校 普通科</dd>
+              <dt>2017–2021年</dt>
+              <dd>高知大学 農林海洋科学部 海洋資源科学科</dd>
+              <dt>2021–2023年</dt>
+              <dd>東京大学大学院 農学生命科学研究科 水圏生物科学専攻 修士課程</dd>
+              <dt>2023–2026年</dt>
+              <dd>東京大学大学院 農学生命科学研究科 水圏生物科学専攻 博士課程</dd>
+            </dl>
+          </div>
+        </div>
       </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
-          </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
+    </section>
+
+    <!-- ========== Research（研究内容）セクション ========== -->
+    <section id="research" class="section section-research">
+      <div class="container">
+        <h2 class="section-title fade-in">Research</h2>
+        
+        <div class="research-grid">
+          <!-- 研究テーマ1 -->
+          <article class="research-card fade-in delay-1">
+            <div class="research-image">
+              <!-- 画像を入れる場合: <img src="images/research1.jpg" alt="研究テーマ1"> -->
+              <div class="image-placeholder">IMAGE</div>
+            </div>
+            <div class="research-body">
+              <h3 class="research-title">研究テーマ1のタイトル</h3>
+              <p class="research-description">
+                研究テーマ1の説明文を書きます。サンプルテキスト。サンプルテキスト。
+                サンプルテキスト。サンプルテキスト。
+              </p>
+            </div>
+          </article>
+          
+          <!-- 研究テーマ2 -->
+          <article class="research-card fade-in delay-2">
+            <div class="research-image">
+              <div class="image-placeholder">IMAGE</div>
+            </div>
+            <div class="research-body">
+              <h3 class="research-title">研究テーマ2のタイトル</h3>
+              <p class="research-description">
+                研究テーマ2の説明文を書きます。サンプルテキスト。サンプルテキスト。
+                サンプルテキスト。サンプルテキスト。
+              </p>
+            </div>
+          </article>
+          
+          <!-- 研究テーマ3 -->
+          <article class="research-card fade-in delay-3">
+            <div class="research-image">
+              <div class="image-placeholder">IMAGE</div>
+            </div>
+            <div class="research-body">
+              <h3 class="research-title">研究テーマ3のタイトル</h3>
+              <p class="research-description">
+                研究テーマ3の説明文を書きます。サンプルテキスト。サンプルテキスト。
+                サンプルテキスト。サンプルテキスト。
+              </p>
+            </div>
+          </article>
         </div>
       </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
+    </section>
+
+    <!-- ========== Publications（業績）セクション ========== -->
+    <section id="publications" class="section section-publications">
+      <div class="container">
+        <h2 class="section-title fade-in">Publications</h2>
+        
+        <!-- 主著 -->
+        <div class="publications-category fade-in">
+          <h3 class="category-title">主著 / First-author Papers</h3>
+          <ol class="publications-list" reversed>
+            <li class="publication-item">
+              <span class="pub-authors"><span class="author-me">Maeda, T.</span>, Itakura, H., Wakiya, R., & Kimura, S.</span>
+              <span class="pub-year">(2025)</span>
+              <span class="pub-title">Development of a non-lethal stomach content analysis method for freshwater eels: An empirical evaluation of the tube method for <i>Anguilla marmorata</i>.</span>
+              <span class="pub-journal">Journal of Fish Biology (in press).</span>
+              <a href="https://doi.org/10.1111/jfb.70198" class="pub-link" target="_blank" rel="noopener">DOI</a>
+            </li>
+            <li class="publication-item">
+              <span class="pub-authors"><span class="author-me">Maeda, T.</span>, Hagihara, S., Wakiya, R., & Kimura, S.</span>
+              <span class="pub-year">(2024)</span>
+              <span class="pub-title">Can displaced <i>Anguilla marmorata</i> return to their original habitat? Daily tracking study of their homing behavior.</span>
+              <span class="pub-journal">Journal of Fish Biology, 105(3), 998–1003.</span>
+              <a href="https://doi.org/10.1111/jfb.15824" class="pub-link" target="_blank" rel="noopener">DOI</a>
+            </li>
+          </ol>
+        </div>
+        
+        <!-- 共著 -->
+        <div class="publications-category fade-in">
+          <h3 class="category-title">共著 / Co-authored Papers</h3>
+          <ol class="publications-list" reversed>
+            <li class="publication-item">
+              <span class="pub-authors">Takeuchi, K., <span class="author-me">Maeda, T.</span>, Hagihara, S., Itakura, H., Kimura, S. & Wakiya, R.</span>
+              <span class="pub-year">(2026)</span>
+              <span class="pub-title">Rapid loss rates of farmed Japanese eels stocked into two different rivers.</span>
+              <span class="pub-journal">Fisheries Research, 293, 107647.</span>
+              <a href="https://doi.org/10.1016/j.fishres.2025.107647" class="pub-link" target="_blank" rel="noopener">DOI</a>
+            </li>
+            <li class="publication-item">
+              <span class="pub-authors">Takeuchi, K., <span class="author-me">Maeda, T.</span>, Hagihara, S., Itakura, H., Kimura, S. & Wakiya, R.</span>
+              <span class="pub-year">(2026)</span>
+              <span class="pub-title">High-resolution post-release movement of stocked Japanese eels <i>Anguilla japonica</i> tracked by a mobile radio frequency identification system.</span>
+              <span class="pub-journal">Fisheries Science, 92, 47–57.</span>
+              <a href="https://doi.org/10.1007/s12562-025-01930-1" class="pub-link" target="_blank" rel="noopener">DOI</a>
+            </li>
+            <li class="publication-item">
+              <span class="pub-authors">Hagihara, S., Wakiya, R., <span class="author-me">Maeda, T.</span>, & Kimura, S.</span>
+              <span class="pub-year">(2022)</span>
+              <span class="pub-title">Morphological and gonadal histological characteristics of silver-phase male <i>Anguilla marmorata</i>.</span>
+              <span class="pub-journal">Journal of Fish Biology, 101(3), 749–752.</span>
+              <a href="https://doi.org/10.1111/jfb.15139" class="pub-link" target="_blank" rel="noopener">DOI</a>
+            </li>
+          </ol>
+        </div>
       </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
-  <footer>
+    </section>
+
+    <!-- ========== Presentations（発表）セクション ========== -->
+    <section id="presentations" class="section section-presentations">
+      <div class="container">
+        <h2 class="section-title fade-in">Presentations</h2>
+        
+        <!-- 国際学会 -->
+        <div class="presentations-category fade-in">
+          <h3 class="category-title">国際学会 / International Conferences</h3>
+          <ul class="presentations-list">
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">Maeda T.</span>, Wakiya R., Itakura H., Kimura S.</span>
+              <span class="pres-title">Diet and feeding diversity of the giant mottled eel (<i>Anguilla marmorata</i>).</span>
+              <span class="pres-venue">1st Asian International Eel Symposium, Amami, Japan.</span>
+              <span class="pres-date">September 2025</span>
+              <span class="pres-type oral">Oral</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">Otaki S., Hara T., <span class="author-me">Maeda T.</span>, Hagihara S.</span>
+              <span class="pres-title">Size at sex differentiation in the giant mottled eel <i>Anguilla marmorata</i> on Amami-Oshima Island: implication for a latitudinal cline.</span>
+              <span class="pres-venue">International Conference.</span>
+              <span class="pres-date">2025</span>
+              <span class="pres-type poster">Poster</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">Maeda T.</span>, Wakiya R., Itakura H., Kimura S.</span>
+              <span class="pres-title">Development of non-lethal method for feeding study of the giant mottled eel (<i>Anguilla marmorata</i>).</span>
+              <span class="pres-venue">12th International Fisheries Symposium 2024, Hakodate, Japan.</span>
+              <span class="pres-date">November 2024</span>
+              <span class="pres-type poster">Poster</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">Maeda T.</span>, Wakiya R., Itakura H., Kimura S.</span>
+              <span class="pres-title">A non-lethal method for feeding research of giant mottled eels (<i>Anguilla marmorata</i>).</span>
+              <span class="pres-venue">2nd UK International Eel Science Symposium, Liverpool, UK.</span>
+              <span class="pres-date">July 2024</span>
+              <span class="pres-type poster">Poster</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">Takeuchi K., Wakiya R., <span class="author-me">Maeda T.</span>, Hagihara S., Itakura H., Anraku K., Kotani T., Kimura S.</span>
+              <span class="pres-title">Rapid Loss Rates of Farmed Japanese Eels Stocked into Two Different Rivers.</span>
+              <span class="pres-venue">2nd UK International Eel Science Symposium, Liverpool, UK.</span>
+              <span class="pres-date">July 2024</span>
+              <span class="pres-type oral">Oral</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">Takeuchi K., Wakiya R., <span class="author-me">Maeda T.</span>, Itakura H., Hagihara S., Anraku K., Kotani T., Kimura S.</span>
+              <span class="pres-title">Short-Term Apparent Survival Rate of Farmed-And-Stocked Japanese Eels.</span>
+              <span class="pres-venue">9th World Fisheries Congress, Seattle, USA.</span>
+              <span class="pres-date">March 2024</span>
+              <span class="pres-type poster">Poster</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 国内学会 -->
+        <div class="presentations-category fade-in">
+          <h3 class="category-title">国内学会 / Domestic Conferences</h3>
+          <ul class="presentations-list">
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span>, 板倉光, 脇谷量子郎, 木村伸吾</span>
+              <span class="pres-title">非致死的手法を用いたオオウナギの摂餌多様性の解明</span>
+              <span class="pres-venue">第8回東アジア鰻学会研究発表会, 東京大学.</span>
+              <span class="pres-date">2025年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, 脇谷量子郎, <span class="author-me">前田達彦</span>, 板倉光, 萩原聖士, 安樂和彦, 小谷知也, 木村伸吾</span>
+              <span class="pres-title">放流したニホンウナギの生残率の推定</span>
+              <span class="pres-venue">令和６年度日本水産学会春季大会, 東京海洋大学.</span>
+              <span class="pres-date">2024年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span>, 板倉光, 脇谷量子郎, 木村伸吾</span>
+              <span class="pres-title">ウナギ属魚類における非致死的な食性調査手法の確立</span>
+              <span class="pres-venue">第7回東アジア鰻学会研究発表会, 東京大学.</span>
+              <span class="pres-date">2024年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, 脇谷量子郎, <span class="author-me">前田達彦</span>, 板倉光, 萩原聖士, 安樂和彦, 小谷知也, 木村伸吾</span>
+              <span class="pres-title">養殖ニホンウナギの放流直後の生残と移動</span>
+              <span class="pres-venue">第7回東アジア鰻学会研究発表会, 東京大学.</span>
+              <span class="pres-date">2024年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, <span class="author-me">前田達彦</span>, 脇谷量子郎, 萩原聖士, 板倉光, 木村伸吾</span>
+              <span class="pres-title">放流した養殖ニホンウナギの放流後一年間の生残と移動</span>
+              <span class="pres-venue">令和4年度日本水産学会春季大会, 東京海洋大学.</span>
+              <span class="pres-date">2023年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span>, 萩原聖士, 脇谷量子郎, 板倉光, 木村伸吾</span>
+              <span class="pres-title">オオウナギの移送放流後の回帰行動および血中コルチゾル濃度</span>
+              <span class="pres-venue">第6回東アジア鰻学会研究発表会, 東京大学.</span>
+              <span class="pres-date">2023年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, <span class="author-me">前田達彦</span>, 脇谷量子郎, 萩原聖士, 板倉光, 木村伸吾</span>
+              <span class="pres-title">放流した養殖ニホンウナギの生態学的特徴と放流時の栄養状態との関係</span>
+              <span class="pres-venue">東アジア鰻学会第6回研究発表会, 東京大学.</span>
+              <span class="pres-date">2023年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span>, 竹内宏太, 萩原聖士, 脇谷量子郎, 板倉光, 木村伸吾</span>
+              <span class="pres-title">ニホンウナギおよびオオウナギの河川における回帰性</span>
+              <span class="pres-venue">令和4年度日本水産学会春季大会, 東京大学.</span>
+              <span class="pres-date">2023年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span></span>
+              <span class="pres-title">ウナギ属魚類の生息地固執性および回帰性に関する行動生態学的研究</span>
+              <span class="pres-venue">第43回関東地区生態学関係修士論文発表会, 東京大学.</span>
+              <span class="pres-date">2023年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, 脇谷量子郎, <span class="author-me">前田達彦</span>, 萩原聖士, 板倉光, 木村伸吾</span>
+              <span class="pres-title">養殖ニホンウナギの河川放流後の生残と移動</span>
+              <span class="pres-venue">日本動物学会第93回早稲田大会, 早稲田大学.</span>
+              <span class="pres-date">2022年9月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, <span class="author-me">前田達彦</span>, 脇谷量子郎, 萩原聖士, 木村伸吾</span>
+              <span class="pres-title">養殖ニホンウナギの放流後の移動分散特性</span>
+              <span class="pres-venue">令和3年度日本水産学会春季大会, オンライン開催.</span>
+              <span class="pres-date">2022年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors">竹内宏太, <span class="author-me">前田達彦</span>, 脇谷量子郎, 萩原聖士, 木村伸吾</span>
+              <span class="pres-title">放流ニホンウナギの移動・分布の特性</span>
+              <span class="pres-venue">東アジア鰻学会第5回研究発表会, オンライン開催.</span>
+              <span class="pres-date">2022年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span>, 竹内宏太, 脇谷量子郎, 萩原聖士, 木村伸吾</span>
+              <span class="pres-title">ウナギ属魚類の定住性検証のための野外実験</span>
+              <span class="pres-venue">令和3年度日本水産学会春季大会, オンライン開催.</span>
+              <span class="pres-date">2022年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+            <li class="presentation-item">
+              <span class="pres-authors"><span class="author-me">前田達彦</span>, 竹内宏太, 脇谷量子郎, 萩原聖士, 木村伸吾</span>
+              <span class="pres-title">河川におけるウナギ属魚類の定住性と回帰性</span>
+              <span class="pres-venue">東アジア鰻学会第5回研究発表会.</span>
+              <span class="pres-date">2022年3月</span>
+              <span class="pres-type oral">口頭</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+        <!-- ========== Grants（研究助成・奨学金）セクション ========== -->
+    <section id="grants" class="section section-grants">
+      <div class="container">
+        <h2 class="section-title fade-in">Grants &amp; Scholarships</h2>
+
+        <dl class="grants-list">
+          <div class="grant-item fade-in delay-1">
+            <dt class="grant-date">2023–2026</dt>
+            <dd class="grant-content">次世代研究者挑戦的研究プログラム（SPRING-GX, JST）</dd>
+          </div>
+          <div class="grant-item fade-in delay-2">
+            <dt class="grant-date">2025–2026</dt>
+            <dd class="grant-content">自発的融合プロジェクト研究プログラム, SPRING-GX</dd>
+          </div>
+          <div class="grant-item fade-in delay-3">
+            <dt class="grant-date">2025–2026</dt>
+            <dd class="grant-content">河川基金助成事業, 河川財団</dd>
+          </div>
+          <div class="grant-item fade-in delay-4">
+            <dt class="grant-date">2024–2025</dt>
+            <dd class="grant-content">河川基金助成事業, 河川財団</dd>
+          </div>
+          <div class="grant-item fade-in delay-1">
+            <dt class="grant-date">2023–2024</dt>
+            <dd class="grant-content">自発的融合プロジェクト研究プログラム, SPRING-GX</dd>
+          </div>
+          <div class="grant-item fade-in delay-2">
+            <dt class="grant-date">2023–2024</dt>
+            <dd class="grant-content">河川基金助成事業, 河川財団</dd>
+          </div>
+          <div class="grant-item fade-in delay-3">
+            <dt class="grant-date">2022–2023</dt>
+            <dd class="grant-content">服部奨学金, 服部国際奨学財団</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+
+    <!-- ========== Outreach / Media（報道・一般向け活動）セクション ========== -->
+    <section id="outreach" class="section section-projects">
+      <div class="container">
+        <h2 class="section-title fade-in">Outreach &amp; Media</h2>
+
+        <ul class="projects-list fade-in">
+          <li class="project-item">
+            <span class="project-date">2025.9.13</span>
+            <span class="project-title">第1回アジアウナギシンポジウムin奄美, 一般向け講演会</span>
+            <a href="https://www.eelsympo2025.com/schedule/%E4%B8%80%E8%88%AC%E5%90%91%E3%81%91%E8%AC%9B%E6%BC%94%E4%BC%9A-public-talk" class="pub-link project-btn" target="_blank" rel="noopener">HP</a>
+            <a href="https://www.nankainn.com/news/p-economy/%E5%9B%BD%E9%9A%9B%E3%82%A6%E3%83%8A%E3%82%AE%E3%82%B7%E3%83%B3%E3%83%9D%E5%88%9D%E9%96%8B%E5%82%AC%E3%80%80%E4%B8%96%E7%95%8C%EF%BC%91%EF%BC%92%E3%82%AB%E5%9B%BD%E3%81%AE%E7%A0%94%E7%A9%B6%E8%80%85" class="pub-link project-btn" target="_blank" rel="noopener">南海日日新聞</a>
+            <span class="project-description">「奄美の川のヌシ・オオウナギの生態」</span>
+          </li>
+          <li class="project-item">
+            <span class="project-date">2024.9.14</span>
+            <a href="https://www.nankainn.com/news/%E7%89%B9%E9%9B%86/%E7%A7%BB%E4%BD%8F%E3%81%97%E3%82%A6%E3%83%8A%E3%82%AE%E3%81%AE%E7%94%9F%E6%85%8B%E8%AA%BF%E6%9F%BB%E3%80%80%E9%9D%9E%E8%87%B4%E6%AD%BB%E7%9A%84%E3%81%AA%E6%89%8B%E6%B3%95%E3%81%AE%E7%A2%BA%E7%AB%8B" class="pub-link project-title" target="_blank" rel="noopener">南海日日新聞</a>
+            <span class="project-description">移住しウナギの生態調査　非致死的な手法の確立も　東大博士課程の前田達彦さん</span>
+          </li>
+          <li class="project-item">
+            <span class="project-date">2024.2.24</span>
+
+           <span class="project-title">第2回奄美群島の渚のいきもの勉強会（奄美海洋展示館）</span>
+            <a href="https://www.nankainn.com/news/a-and-p/%E8%8B%A5%E6%89%8B%E7%A0%94%E7%A9%B6%E8%80%85%EF%BC%94%E4%BA%BA%E3%81%8C%E7%99%BA%E8%A1%A8%E3%80%80%E5%A5%84%E7%BE%8E%E5%B8%82%E3%81%A7%E6%B8%9A%E3%81%AE%E3%81%84%E3%81%8D%E3%82%82%E3%81%AE%E5%8B%89" class="pub-link project-btn" target="_blank" rel="noopener">南海日日新聞</a>
+            <span class="project-description">「奄美に生息するオオウナギの行動」（南海日日新聞）</span>
+          </li>
+          <li class="project-item">
+            <span class="project-date">2022–2023</span>
+            <span class="project-title">マリンチャレンジプログラム</span>
+            <a href="@@4-hp" class="pub-link project-btn" target="_blank" rel="noopener">詳細</a>
+            <span class="project-description">研究コーチ（中高生への研究指導）</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+
+    <!-- ========== Contact（連絡先）セクション ========== -->
+    <section id="contact" class="section section-contact">
+      <div class="container">
+        <h2 class="section-title fade-in">Contact</h2>
+        
+        <div class="contact-content fade-in">
+          <div class="contact-info">
+            <h3 class="contact-subtitle">所属</h3>
+            <p class="contact-affiliation">
+              東京大学 大気海洋研究所 生物海洋学グループ<br>
+              〒277-8564 千葉県柏市柏の葉5-1-5
+            </p>
+            
+            <h3 class="contact-subtitle">メール</h3>
+            <p class="contact-email">
+              <!-- スパム対策：@を[at]に変えるなどの工夫も可能 -->
+              example[at]example.ac.jp
+            </p>
+            
+            <h3 class="contact-subtitle">リンク</h3>
+            <ul class="contact-links">
+              <li><a href="https://www.researchgate.net/profile/Tatsuhiko-Maeda" target="_blank" rel="noopener">ResearchGate</a></li>
+              <li><a href="https://orcid.org/0000-0002-6414-8157" target="_blank" rel="noopener">ORCID</a></li>
+              <li><a href="https://mbe.aori.u-tokyo.ac.jp/" target="_blank" rel="noopener">研究室HP</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       フッター
+       ============================================ -->
+  <footer class="footer">
     <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
+      <p class="copyright">
+        &copy; 2025 Tatsuhiko Maeda. All Rights Reserved.
+      </p>
     </div>
   </footer>
+
+  <!-- ============================================
+       JavaScript（ハンバーガーメニュー＆スクロールアニメーション）
+       ============================================ -->
+  <script>
+    // ハンバーガーメニューの開閉
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+    
+    // メニューリンクをクリックしたらメニューを閉じる
+    const navLinks = document.querySelectorAll('.nav-list a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+
+    // スクロールアニメーション（Intersection Observer API）
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,  // 要素が10%見えたら発火
+      rootMargin: '0px 0px -50px 0px'  // 少し手前で発火
+    });
+    
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
