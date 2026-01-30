@@ -896,6 +896,29 @@ ul, ol {
 .fade-in.delay-3 { transition-delay: 0.3s; }
 .fade-in.delay-4 { transition-delay: 0.4s; }
 .fade-in.delay-5 { transition-delay: 0.5s; }
+/* ============================================
+   レスポンシブ対応（大サイズタブレット）
+   ============================================ */
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 25px;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+}
 
 
 /* ============================================
@@ -903,33 +926,736 @@ ul, ol {
    ============================================ */
 
 @media screen and (max-width: 900px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+    margin-bottom: 35px;
+  }
+
+  .section-title::after {
+    width: 50px;
+    margin: 12px auto 0;
+  }
+
+  /* ヒーロー調整 */
+  .hero {
+    aspect-ratio: 16 / 8;
+    margin-top: 70px;
+  }
+
+  .hero-content {
+    padding: 20px 24px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
   /* リサーチセクションを2列に */
   .research-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
-  
-  /* About セクションを縦並びに */
+
+  .research-card {
+    padding: 15px;
+  }
+
+  .research-title {
+    font-size: 1.1rem;
+  }
+
+  .research-description {
+    font-size: 0.9rem;
+  }
+
+  /* About セクション */
   .about-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  
+
+  .about-image {
+    width: 200px;
+    margin-bottom: 25px;
+  }
+
   .about-text {
     width: 100%;
   }
-  
+
+  .about-name {
+    font-size: 1.6rem;
+  }
+
+  .about-position {
+    font-size: 0.95rem;
+  }
+
   .career-list {
     text-align: left;
+  }
+
+  /* パブリケーション */
+  .publication-item {
+    padding: 12px 0;
+    padding-left: 30px;
+    font-size: 0.92rem;
+  }
+
+  .pub-authors {
+    font-size: 0.88rem;
+  }
+
+  .pub-title {
+    font-size: 0.92rem;
+  }
+
+  .pub-journal {
+    font-size: 0.88rem;
+  }
+
+  /* プレゼンテーション */
+  .presentation-item {
+    padding: 12px 0;
+    font-size: 0.92rem;
+  }
+
+  .pres-title {
+    font-size: 0.92rem;
+    margin: 2px 0;
+  }
+
+  .pres-venue {
+    font-size: 0.88rem;
+  }
+
+  /* グラント */
+  .grant-item {
+    padding: 10px 0;
+  }
+
+  .grant-date {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .grant-content {
+    font-size: 0.9rem;
+  }
+
+  /* プロジェクト */
+  .project-item {
+    padding: 14px 16px;
+    margin-bottom: 15px;
+  }
+
+  .project-date {
+    font-size: 0.88rem;
+  }
+
+  .project-title {
+    font-size: 0.95rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .pub-link,
+  .project-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    margin-left: 6px;
   }
 }
 
 
 /* ============================================
-   レスポンシブ対応（スマートフォン）
+   レスポンシブ対応（小タブレット～スマートフォン）
    ============================================ */
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+
+  .section-title::after {
+    width: 45px;
+    margin: 10px auto 0;
+  }
+
+  /* ハンバーガーメニューを表示 */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* ナビゲーション */
+  .site-title {
+    font-size: 1.1rem;
+  }
+
+  .site-title .en-name {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    padding: 15px 0;
+  }
+
+  .nav-list li {
+    width: 100%;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 15px 20px;
+    font-size: 0.95rem;
+  }
+
+  .nav-list a::after {
+    display: none;
+  }
+
+  .lang-switch {
+    padding: 10px 20px;
+  }
+
+  .lang-switch a {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* ヒーロー */
+  .hero {
+    aspect-ratio: 16 / 8;
+    margin-top: 70px;
+  }
+
+  .hero-content {
+    padding: 16px 18px;
+    border-radius: 8px;
+  }
+
+  .hero-title {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* リサーチグリッド */
+  .research-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .research-card {
+    padding: 12px;
+  }
+
+  .research-image {
+    height: 150px;
+  }
+
+  .research-title {
+    font-size: 1rem;
+  }
+
+  .research-description {
+    font-size: 0.88rem;
+  }
+
+  /* About */
+  .about-image {
+    width: 160px;
+    margin-bottom: 20px;
+  }
+
+  .about-name {
+    font-size: 1.4rem;
+  }
+
+  .about-name .name-en {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+
+  .about-position {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .about-description {
+    font-size: 0.9rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
+  /* キャリアリスト */
+  .career-list {
+    text-align: left;
+  }
+
+  .career-list dt {
+    font-size: 0.9rem;
+  }
+
+  .career-list dd {
+    font-size: 0.9rem;
+  }
+
+  /* パブリケーション */
+  .publication-item {
+    padding: 10px 0;
+    padding-left: 25px;
+    font-size: 0.88rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .publication-item::before {
+    width: 20px;
+  }
+
+  .pub-authors {
+    font-size: 0.82rem;
+    color: #555;
+  }
+
+  .pub-year {
+    font-size: 0.82rem;
+  }
+
+  .pub-title {
+    font-size: 0.88rem;
+    margin: 2px 0;
+  }
+
+  .pub-journal {
+    font-size: 0.82rem;
+    color: #666;
+  }
+
+  /* プレゼンテーション */
+  .presentations-list {
+    padding: 0;
+  }
+
+  .presentation-item {
+    padding: 10px 0;
+    font-size: 0.88rem;
+  }
+
+  .pres-authors {
+    font-size: 0.82rem;
+  }
+
+  .pres-title {
+    font-size: 0.88rem;
+    margin: 2px 0;
+  }
+
+  .pres-venue {
+    font-size: 0.82rem;
+  }
+
+  .pres-date {
+    font-size: 0.78rem;
+  }
+
+  .pres-type {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+  }
+
+  /* グラント */
+  .grants-list {
+    padding: 0;
+  }
+
+  .grant-item {
+    padding: 10px 0;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .grant-date {
+    font-size: 0.88rem;
+  }
+
+  .grant-content {
+    font-size: 0.88rem;
+  }
+
+  /* ニュース */
+  .news-list {
+    padding: 0;
+  }
+
+  .news-item {
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 0;
+  }
+
+  .news-date {
+    width: auto;
+    font-size: 0.88rem;
+  }
+
+  .news-content {
+    font-size: 0.88rem;
+  }
+
+  /* プロジェクト */
+  .projects-list {
+    padding: 0;
+  }
+
+  .project-item {
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+
+  .project-date {
+    font-size: 0.82rem;
+  }
+
+  .project-title {
+    font-size: 0.92rem;
+  }
+
+  .project-description {
+    font-size: 0.88rem;
+  }
+
+  .pub-link,
+  .project-btn {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    margin-left: 4px;
+  }
+
+  /* コンタクト */
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .contact-affiliation {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .contact-email {
+    font-size: 0.88rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contact-links a {
+    font-size: 0.9rem;
+  }
+
+  /* フッター */
+  .copyright {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ============================================
+   レスポンシブ対応（スマートフォン大）
+   ============================================ */
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  .section-title::after {
+    width: 40px;
+  }
+
+  /* ヒーロー */
+  .hero {
+    aspect-ratio: 16 / 9;
+    margin-top: 60px;
+  }
+
+  .hero-content {
+    padding: 14px 14px;
+  }
+
+  .hero-title {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .slide-controls {
+    bottom: 12px;
+    gap: 8px;
+  }
+
+  .slide-prev,
+  .slide-next {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+
+  .slide-dots button {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* リサーチ */
+  .research-image {
+    height: 120px;
+  }
+
+  .research-title {
+    font-size: 0.95rem;
+  }
+
+  .research-description {
+    font-size: 0.82rem;
+  }
+
+  /* About */
+  .about-image {
+    width: 140px;
+    margin-bottom: 15px;
+  }
+
+  .about-name {
+    font-size: 1.2rem;
+  }
+
+  .about-position {
+    font-size: 0.82rem;
+  }
+
+  .career-list dt {
+    font-size: 0.82rem;
+  }
+
+  .career-list dd {
+    font-size: 0.82rem;
+  }
+
+  /* パブリケーション */
+  .publication-item {
+    font-size: 0.8rem;
+  }
+
+  .pub-authors {
+    font-size: 0.75rem;
+  }
+
+  .pub-title {
+    font-size: 0.8rem;
+  }
+
+  .pub-journal {
+    font-size: 0.75rem;
+  }
+
+  /* プレゼンテーション */
+  .presentation-item {
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+
+  .pres-authors {
+    font-size: 0.75rem;
+  }
+
+  .pres-title {
+    font-size: 0.8rem;
+  }
+
+  .pres-venue {
+    font-size: 0.75rem;
+  }
+
+  .pres-date {
+    font-size: 0.7rem;
+  }
+
+  /* グラント */
+  .grant-item {
+    padding: 8px 0;
+  }
+
+  .grant-date {
+    font-size: 0.8rem;
+  }
+
+  .grant-content {
+    font-size: 0.8rem;
+  }
+
+  /* プロジェクト */
+  .project-item {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+
+  .project-date {
+    font-size: 0.75rem;
+  }
+
+  .project-title {
+    font-size: 0.85rem;
+  }
+
+  .pub-link,
+  .project-btn {
+    padding: 3px 8px;
+    font-size: 0.65rem;
+    margin-left: 3px;
+  }
+
+  /* コンタクト */
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-affiliation {
+    font-size: 0.85rem;
+  }
+
+  .contact-email {
+    font-size: 0.8rem;
+  }
+
+  .contact-links a {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ============================================
+   レスポンシブ対応（超小サイズ）
+   ============================================ */
+
+@media screen and (max-width: 360px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .section {
+    padding: 30px 0;
+  }
+
+  .section-title {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .hero {
+    margin-top: 60px;
+  }
+
+  .hero-title {
+    font-size: 0.95rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
+
+  /* 小さいテキスト統一 */
+  body {
+    font-size: 14px;
+  }
+
+  .about-name {
+    font-size: 1.1rem;
+  }
+
+  .publication-item {
+    font-size: 0.75rem;
+  }
+
+  .pub-link,
+  .project-btn {
+    padding: 2px 6px;
+    font-size: 0.6rem;
+  }
+}
   /* ハンバーガーメニューを表示 */
   .menu-toggle {
     display: block;
@@ -1017,6 +1743,87 @@ ul, ol {
   .section-title {
     font-size: 1.6rem;
     margin-bottom: 35px;
+  }
+  
+  /* フォントサイズをスマホ用に調整 */
+  body {
+    font-size: 15px;
+  }
+  
+  .about-position {
+    font-size: 0.9rem;
+  }
+  
+  .about-description {
+    font-size: 0.95rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1rem;
+  }
+  
+  .publication-item {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+  
+  .pub-authors {
+    font-size: 0.85rem;
+  }
+  
+  .pub-title {
+    font-size: 0.9rem;
+  }
+  
+  .pub-journal {
+    font-size: 0.85rem;
+  }
+  
+  .pub-year {
+    font-size: 0.85rem;
+  }
+  
+  .pres-title {
+    font-size: 0.9rem;
+  }
+  
+  .pres-venue {
+    font-size: 0.85rem;
+  }
+  
+  .pres-date {
+    font-size: 0.8rem;
+  }
+  
+  .grant-date {
+    font-size: 0.9rem;
+  }
+  
+  .grant-content {
+    font-size: 0.9rem;
+  }
+  
+  .project-item {
+    padding: 12px 15px;
+  }
+  
+  .project-date {
+    font-size: 0.85rem;
+  }
+  
+  .project-title {
+    font-size: 0.95rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+  }
+  
+  .pub-link,
+  .project-btn {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    margin-left: 4px;
   }
   
   /* リサーチセクションを1列に */
