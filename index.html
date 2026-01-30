@@ -51,11 +51,25 @@
        メインビジュアル（トップ画像エリア）
        ============================================ -->
   <section class="hero">
+    <div class="hero-slides">
+      <div class="slide active" style="background-image: url('image/kuroobitakasago.JPG')"></div>
+      <div class="slide" style="background-image: url('image/lutjanus.JPG')"></div>
+      <div class="slide" style="background-image: url('image/macrorachium.JPG')"></div>
+      <div class="slide" style="background-image: url('image/kakureiwa.jpg')"></div>
+      <div class="slide" style="background-image: url('image/eel.JPG')"></div>
+      <div class="slide" style="background-image: url('image/yt_up.JPG')"></div>
+    </div>
+
     <div class="hero-content fade-in">
       <h2 class="hero-title">こんにちは、前田達彦です</h2>
       <p class="hero-subtitle">奄美大島でオオウナギの研究をしています。</p>
     </div>
-    <!-- 背景はCSSで指定するため、画像を変更する場合はstyle.cssの.heroを編集 -->
+
+    <div class="slide-controls">
+      <button class="slide-prev" aria-label="前のスライド">&#10094;</button>
+      <div class="slide-dots" aria-hidden="false"></div>
+      <button class="slide-next" aria-label="次のスライド">&#10095;</button>
+    </div>
   </section>
 
   <!-- ============================================
@@ -71,8 +85,7 @@
         <div class="about-content fade-in">
           <!-- プロフィール写真エリア -->
           <div class="about-image">
-            <!-- 画像を入れる場合: <img src="images/profile.jpg" alt="プロフィール写真"> -->
-            <div class="image-placeholder">PHOTO</div>
+             <img src="image/profile.png" alt="プロフィール写真">
           </div>
           
           <!-- プロフィールテキストエリア -->
@@ -123,7 +136,7 @@
               <div class="image-placeholder">IMAGE</div>
             </div>
             <div class="research-body">
-              <h3 class="research-title">傷つけないサンプリング手法の確立</h3>
+              <h3 class="research-title">ウナギを傷つけない調査手法の確立</h3>
               <p class="research-description">
                 オオウナギの胃内容物をチューブと鉗子（ペンチのような道具）を使って殺さずに胃内容物を採取する手法を確立しました。
               </p>
@@ -431,7 +444,7 @@
           <li class="project-item">
             <span class="project-date">2024.9.14</span>
             <a href="https://www.nankainn.com/news/%E7%89%B9%E9%9B%86/%E7%A7%BB%E4%BD%8F%E3%81%97%E3%82%A6%E3%83%8A%E3%82%AE%E3%81%AE%E7%94%9F%E6%85%8B%E8%AA%BF%E6%9F%BB%E3%80%80%E9%9D%9E%E8%87%B4%E6%AD%BB%E7%9A%84%E3%81%AA%E6%89%8B%E6%B3%95%E3%81%AE%E7%A2%BA%E7%AB%8B" class="pub-link project-title" target="_blank" rel="noopener">南海日日新聞</a>
-            <span class="project-description">移住しウナギの生態調査　非致死的な手法の確立も　東大博士課程の前田達彦さん</span>
+            <span class="project-description">移住しウナギの生態調査 非致死的な手法の確立も 東大博士課程の前田達彦さん</span>
           </li>
           <li class="project-item">
             <span class="project-date">2024.2.24</span>
@@ -531,6 +544,52 @@
     });
     
     fadeElements.forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    // Simple hero slideshow
+    (function(){
+      const slides = document.querySelectorAll('.slide');
+      if (!slides || slides.length <= 1) return;
+
+      const dotsContainer = document.querySelector('.slide-dots');
+      const prevBtn = document.querySelector('.slide-prev');
+      const nextBtn = document.querySelector('.slide-next');
+      let index = 0;
+      let interval = null;
+
+      // create dots
+      slides.forEach((s, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = i === 0 ? 'active' : '';
+        btn.addEventListener('click', () => { showSlide(i); resetInterval(); });
+        dotsContainer.appendChild(btn);
+      });
+
+      const dots = Array.from(dotsContainer.children);
+
+      function showSlide(i){
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+        index = i;
+      }
+
+      function next(){ showSlide((index+1) % slides.length); }
+      function prev(){ showSlide((index-1 + slides.length) % slides.length); }
+
+      if(nextBtn) nextBtn.addEventListener('click', () => { next(); resetInterval(); });
+      if(prevBtn) prevBtn.addEventListener('click', () => { prev(); resetInterval(); });
+
+      function resetInterval(){
+        clearInterval(interval);
+        interval = setInterval(next, 5000);
+      }
+
+      interval = setInterval(next, 5000);
+    })();
   </script>
 
 </body>

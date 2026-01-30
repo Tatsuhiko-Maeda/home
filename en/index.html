@@ -48,14 +48,29 @@
   </header>
 
   <!-- ============================================
-       Hero Section
+       メインビジュアル（トップ画像エリア）
        ============================================ -->
   <section class="hero">
+    <div class="hero-slides">
+      <div class="slide active" style="background-image: url('../image/kuroobitakasago.JPG')"></div>
+      <div class="slide" style="background-image: url('../image/river_me.png')"></div>
+      <div class="slide" style="background-image: url('../image/marmo_pic.JPG')"></div>
+      <div class="slide" style="background-image: url('../image/ebi.JPG')"></div>
+      <div class="slide" style="background-image: url('../image/yt_up.JPG')"></div>
+    </div>
+
     <div class="hero-content fade-in">
       <h2 class="hero-title">Hello, I'm Tatsuhiko Maeda</h2>
-      <p class="hero-subtitle">Studying giant mottled eels on the Amami-Oshima Island.</p>
+      <p class="hero-subtitle">Studying giant mottled eels on Amami-Oshima Island.</p>
+    </div>
+
+    <div class="slide-controls">
+      <button class="slide-prev" aria-label="前のスライド">&#10094;</button>
+      <div class="slide-dots" aria-hidden="false"></div>
+      <button class="slide-next" aria-label="次のスライド">&#10095;</button>
     </div>
   </section>
+
 
   <!-- ============================================
        Main Content
@@ -334,20 +349,20 @@
           <li class="project-item">
             <span class="project-date">2025.9.13</span>
            <span class="project-title">1st Asian Eel Symposium in Amami, Public Lecture</span>
-            <a href="@@1-hp" class="pub-link project-btn" target="_blank" rel="noopener">Website</a>
-            <a href="@@1-news" class="pub-link project-btn" target="_blank" rel="noopener">News</a>
+            <a href="https://www.eelsympo2025.com/schedule/%E4%B8%80%E8%88%AC%E5%90%91%E3%81%91%E8%AC%9B%E6%BC%94%E4%BC%9A-public-talk" class="pub-link project-btn" target="_blank" rel="noopener">Website</a>
+            <a href="https://www.nankainn.com/news/p-economy/%E5%9B%BD%E9%9A%9B%E3%82%A6%E3%83%8A%E3%82%AE%E3%82%B7%E3%83%B3%E3%83%9D%E5%88%9D%E9%96%8B%E5%82%AC%E3%80%80%E4%B8%96%E7%95%8C%EF%BC%91%EF%BC%92%E3%82%AB%E5%9B%BD%E3%81%AE%E7%A0%94%E7%A9%B6%E8%80%85" class="pub-link project-btn" target="_blank" rel="noopener">News</a>
             <span class="project-description">Topic: "Ecology of the Giant Mottled Eels in Amami Rivers" (Featured in local news)</span>
           </li>
           <li class="project-item">
             <span class="project-date">2024.9.14</span>
             <span class="project-title">Local Newspaper Feature</span>
-            <a href="@@2-news" class="pub-link project-btn" target="_blank" rel="noopener">News</a>
+            <a href="https://www.nankainn.com/news/%E7%89%B9%E9%9B%86/%E7%A7%BB%E4%BD%8F%E3%81%97%E3%82%A6%E3%83%8A%E3%82%AE%E3%81%AE%E7%94%9F%E6%85%8B%E8%AA%BF%E6%9F%BB%E3%80%80%E9%9D%9E%E8%87%B4%E6%AD%BB%E7%9A%84%E3%81%AA%E6%89%8B%E6%B3%95%E3%81%AE%E7%A2%BA%E7%AB%8B" class="pub-link project-btn" target="_blank" rel="noopener">News</a>
             <span class="project-description">Research on eel ecology and development of non-lethal survey methods</span>
           </li>
           <li class="project-item">
             <span class="project-date">2024.2.24</span>
             <span class="project-title">2nd Amami Islands Seashore Organisms Study Group (Amami Marine Exhibition Hall)</span>
-            <a href="@@3-news" class="pub-link project-btn" target="_blank" rel="noopener">News</a>
+            <a href="https://www.nankainn.com/news/a-and-p/%E8%8B%A5%E6%89%8B%E7%A0%94%E7%A9%B6%E8%80%85%EF%BC%94%E4%BA%BA%E3%81%8C%E7%99%BA%E8%A1%A8%E3%80%80%E5%A5%84%E7%BE%8E%E5%B8%82%E3%81%A7%E6%B8%9A%E3%81%AE%E3%81%84%E3%81%8D%E3%82%82%E3%81%AE%E5%8B%89" class="pub-link project-btn" target="_blank" rel="noopener">News</a>
             <span class="project-description">Presentation: "Behavior of Giant Mottled Eels in Amami" (Featured in local news)</span>
           </li>
           <li class="project-item">
@@ -370,13 +385,13 @@
             <p class="contact-affiliation">
               Biological Oceanography Group<br>
               Atmosphere and Ocean Research Institute (AORI)<br>
-              University of Tokyo<br>
+              the University of Tokyo<br>
               5-1-5 Kashiwa-no-ha, Kashiwa, Chiba 277-8564, Japan
             </p>
             
             <h3 class="contact-subtitle">Email</h3>
             <p class="contact-email">
-              example[at]example.ac.jp
+              tatsuhikomaeda707[at]gmail.com
             </p>
             
             <h3 class="contact-subtitle">Links</h3>
@@ -440,6 +455,51 @@
     });
     
     fadeElements.forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    // Simple hero slideshow (EN)
+    (function(){
+      const slides = document.querySelectorAll('.slide');
+      if (!slides || slides.length <= 1) return;
+
+      const dotsContainer = document.querySelector('.slide-dots');
+      const prevBtn = document.querySelector('.slide-prev');
+      const nextBtn = document.querySelector('.slide-next');
+      let index = 0;
+      let interval = null;
+
+      slides.forEach((s, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = i === 0 ? 'active' : '';
+        btn.addEventListener('click', () => { showSlide(i); resetInterval(); });
+        dotsContainer.appendChild(btn);
+      });
+
+      const dots = Array.from(dotsContainer.children);
+
+      function showSlide(i){
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+        index = i;
+      }
+
+      function next(){ showSlide((index+1) % slides.length); }
+      function prev(){ showSlide((index-1 + slides.length) % slides.length); }
+
+      if(nextBtn) nextBtn.addEventListener('click', () => { next(); resetInterval(); });
+      if(prevBtn) prevBtn.addEventListener('click', () => { prev(); resetInterval(); });
+
+      function resetInterval(){
+        clearInterval(interval);
+        interval = setInterval(next, 5000);
+      }
+
+      interval = setInterval(next, 5000);
+    })();
   </script>
 
 </body>
