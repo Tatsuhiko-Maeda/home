@@ -24,6 +24,8 @@ body {
   line-height: 1.8;
   color: #333;
   background-color: #fff;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* リンクの基本スタイル */
@@ -334,12 +336,14 @@ ul, ol {
   font-weight: 500;
   color: #1a365d;
   margin-bottom: 20px;
+  word-break: keep-all;
   /* 背景画像使用時は白文字に: color: #fff; */
 }
 
 .hero-subtitle {
   font-size: 1.1rem;
   color: #555;
+  word-break: keep-all;
   /* 背景画像使用時は白文字に: color: rgba(255,255,255,0.9); */
 }
 
