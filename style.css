@@ -782,6 +782,8 @@ ul, ol {
   color: #1a365d;
   display: inline-block;
   margin-right: 8px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .project-description {
@@ -790,6 +792,8 @@ ul, ol {
   font-size: 0.95rem;
   color: #555;
   line-height: 1.6;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .section-activities {
@@ -834,6 +838,8 @@ ul, ol {
 .grants-list dd.grant-content,
 .grants-list .grant-content {
   flex: 1;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .contact-subtitle {
@@ -1099,6 +1105,47 @@ ul, ol {
     width: auto;
   }
   
+  /* Grants & Scholarships セクション */
+  .grants-list .grant-item {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .grants-list dt.grant-date,
+  .grants-list .grant-date {
+    width: auto;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .grants-list dd.grant-content,
+  .grants-list .grant-content {
+    display: block;
+    width: 100%;
+  }
+
+  /* 報道・一般向け活動セクション */
+  .projects-list .project-item {
+    display: block;
+    padding: 16px 14px;
+  }
+
+  .project-date,
+  .project-title,
+  .project-description,
+  .project-btn,
+  .pub-link {
+    display: block;
+    width: 100%;
+    margin: 0 0 8px;
+  }
+
+  .project-btn,
+  .pub-link {
+    margin-left: 0;
+    text-align: center;
+  }
+
   /* Contactセクション */
   .contact-links {
     flex-direction: column;
