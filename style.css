@@ -595,6 +595,7 @@ ul, ol {
   }
   .hero-title {
     font-size: 1.6rem;
+    white-space: nowrap;
   }
   .hero-subtitle {
     font-size: 1rem;
