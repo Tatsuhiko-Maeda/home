@@ -1122,28 +1122,44 @@ ul, ol {
   .grants-list .grant-content {
     display: block;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   /* 報道・一般向け活動セクション */
   .projects-list .project-item {
     display: block;
     padding: 16px 14px;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .project-date,
   .project-title,
   .project-description,
   .project-btn,
-  .pub-link {
+  .pub-link,
+  .grant-date,
+  .grant-content {
     display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     margin: 0 0 8px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   .project-btn,
   .pub-link {
     margin-left: 0;
     text-align: center;
+    box-sizing: border-box;
   }
 
   /* Contactセクション */
