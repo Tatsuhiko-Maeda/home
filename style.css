@@ -1162,6 +1162,13 @@ ul, ol {
     box-sizing: border-box;
   }
 
+  .grants-list .grant-content .pub-link {
+    display: inline-block;
+    width: auto;
+    margin-left: 8px;
+    text-align: left;
+  }
+
   /* Contactセクション */
   .contact-links {
     flex-direction: column;
